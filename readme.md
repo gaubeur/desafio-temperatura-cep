@@ -35,7 +35,10 @@ Deploy realizado no Google Cloud Run (free tier) e endereço ativo para ser aces
 
 **** ORIENTAÇÃO PARA EXECUÇÃO ***
 
-http://localhost:8080/cep/<numero do cep>
+http://localhost:8080/cep/numero-do-cep
 
 **** GOOGLE CLOUD RUN
-https://desafio-temperatura-cep-p5rbn7csba-rj.a.run.app/cep/<numero do cep>
+
+https://desafio-temperatura-cep-p5rbn7csba-rj.a.run.app/cep/numero-do-cep
+
+
