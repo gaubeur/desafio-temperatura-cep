@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 )
 
@@ -62,7 +63,7 @@ func getCepWeather(w http.ResponseWriter, r *http.Request, weatherAPIKey string)
 
 	var cepData CepResponse
 	if err := json.Unmarshal(body, &cepData); err != nil {
-		http.Error(w, "internal server error", http.StatusInternalServerError)
+		http.Error(w, "can not find zipcode", http.StatusNotFound)
 		return
 	}
 
@@ -143,12 +144,13 @@ func getCepWeather(w http.ResponseWriter, r *http.Request, weatherAPIKey string)
 }
 
 func main() {
-	// Lê a chave da API de uma variável de ambiente
-	//decisão de projeto deixar a api key no binário
-	//weatherAPIKey := os.Getenv("WEATHERAPI_KEY")
-	weatherAPIKey := "ebdba81c2d6c44578a534745252509"
+	weatherAPIKey := os.Getenv("WEATHERAPI_KEY")
+
+	// MUDANÇA: Remove espaços e aspas duplas que podem ter sido lidas.
+	weatherAPIKey = strings.TrimSpace(strings.ReplaceAll(weatherAPIKey, "\"", ""))
+
 	if weatherAPIKey == "" {
-		log.Fatal("A variável de ambiente WEATHER_API_KEY não está definida.")
+		log.Println("ERRO CRÍTICO: Variável de ambiente WEATHERAPI_KEY não está definida ou está vazia.														")
 	}
 
 	//log.Println("Chave da API de clima lida:", weatherAPIKey)
