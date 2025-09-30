@@ -3,6 +3,3 @@ services:
     build: .
     ports:
       - "8080:8080"
-    environment:
-      - WEATHERAPI_KEY=ebdba81c2d6c44578a534745252509 
-

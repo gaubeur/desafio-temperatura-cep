@@ -7,7 +7,6 @@ import (
 	"log"
 	"net/http"
 	"net/url"
-	"os"
 	"strings"
 )
 
@@ -144,7 +143,7 @@ func getCepWeather(w http.ResponseWriter, r *http.Request, weatherAPIKey string)
 }
 
 func main() {
-	weatherAPIKey := os.Getenv("WEATHERAPI_KEY")
+	weatherAPIKey := "ebdba81c2d6c44578a534745252509"
 
 	// MUDANÇA: Remove espaços e aspas duplas que podem ter sido lidas.
 	weatherAPIKey = strings.TrimSpace(strings.ReplaceAll(weatherAPIKey, "\"", ""))
@@ -152,8 +151,6 @@ func main() {
 	if weatherAPIKey == "" {
 		log.Println("ERRO CRÍTICO: Variável de ambiente WEATHERAPI_KEY não está definida ou está vazia.														")
 	}
-
-	//log.Println("Chave da API de clima lida:", weatherAPIKey)
 
 	// Define o manipulador para a rota /cep/
 	http.HandleFunc("/cep/", func(w http.ResponseWriter, r *http.Request) {

@@ -39,4 +39,14 @@ http://localhost:8080/cep/numero-do-cep
 
 https://desafio-temperatura-cep-p5rbn7csba-rj.a.run.app/cep/numero-do-cep
 
+Preciso deixar documentado isso
+
+1841  gcloud auth login --no-launch-browser --flags-file=./auth_flags.yaml
+1842  gcloud config unset proxy/type
+1843  gcloud config unset proxy/address
+1844  gcloud config unset proxy/port
+1845  gcloud config list
+1846  gcloud auth login --no-launch-browser
+unset CLOUDSDK_AUTH_ACCESS_TOKEN
+
 
