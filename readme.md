@@ -31,8 +31,6 @@ Testes automatizados demonstrando o funcionamento.
 Utilize docker/docker-compose para que possamos realizar os testes de sua aplicação.
 Deploy realizado no Google Cloud Run (free tier) e endereço ativo para ser acessado.
 
-**** Por decisão de projeto, decidi deixar a api key dentro do binário ao invés de variavel no dockerfile ou no cloud run
-
 **** ORIENTAÇÃO PARA EXECUÇÃO ***
 
 http://localhost:8080/cep/numero-do-cep
